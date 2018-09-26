@@ -1,6 +1,4 @@
-[<img src="https://monitoringartist.github.io/managed-by-monitoringartist.png" alt="Managed by Monitoring Artist: DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring" align="right"/>](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Zabbix / Zenoss / Terraform / Monitoring')
-
-# Dockbix Agent XXL - Dockerized Zabbix Agent with Docker, host, systemd, sockets monitoring
+# Docker Agent - Dockerized Zabbix Agent with Docker, host, systemd, sockets monitoring
 
 [![DockerHub pulls](https://img.shields.io/docker/pulls/monitoringartist/dockbix-agent-xxl-limited.svg?style=plastic&label=DockerHub%20Pulls)](https://hub.docker.com/r/monitoringartist/dockbix-agent-xxl-limited/)
 [![GitHub stars](https://img.shields.io/github/stars/monitoringartist/dockbix-agent-xxl.svg?style=plastic&label=GitHub%20Stars)](https://github.com/monitoringartist/dockbix-agent-xxl)
@@ -9,42 +7,31 @@
 [![Docker Store ready](https://img.shields.io/badge/Docker-ready-brightgreen.svg?style=plastic&label=Docker%20Store)](https://store.docker.com/images/d01b16a8-596b-4e30-8892-7cd64781ca98)
 [![Commercial support ready](https://img.shields.io/badge/Commercial_support-ready-brightgreen.svg?style=plastic)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')
 
-[`dockbix-agent-xxl-limited`](https://hub.docker.com/r/monitoringartist/dockbix-agent-xxl-limited/)
-is a 2nd generation of successful (500k+ pulls) [`zabbix-agent-xxl-limited`](https://hub.docker.com/r/monitoringartist/zabbix-agent-xxl-limited/)
-Docker image - it's a standard Zabbix agent with Docker/host/systemd/socket/stress
-metrics support, which can be used with any Zabbix server. Tested on CoreOS,
-RHEL, CentOS, Ubuntu, Debian, Fedora, Boot2docker, Photon OS.
-
-If you like or use this project, please provide feedback to author - Star it ★
-or [submit feedback form](https://docs.google.com/forms/d/e/1FAIpQLSdte1irviwtQzXU8_DMzboxf_qggE3qgjgpPHoBlE9RzLCXKA/viewform).
-
 ----
 
-**Overview of Monitoring Artist (dockerized) monitoring ecosystem:**
-
-- **[Dockbix XXL](https://hub.docker.com/r/monitoringartist/dockbix-xxl/)** - Zabbix server/proxy/UI/snmpd/java gateway with additional extensions
-- **[Dockbix agent XXL](https://hub.docker.com/r/monitoringartist/dockbix-agent-xxl-limited/)** - Zabbix agent with [Docker (Kubernetes/Mesos/Chronos/Marathon) monitoring](https://github.com/monitoringartist/zabbix-docker-monitoring) module
+- **[Docker] (https://hub.docker.com/r/monitoringartist/dockbix-xxl/)** - Zabbix server/proxy/UI/snmpd/java gateway with additional extensions
+- **[Docker agent](https://hub.docker.com/r/monitoringartist/dockbix-agent-xxl-limited/)** - Zabbix agent with [Docker (Kubernetes/Mesos/Chronos/Marathon) monitoring](https://github.com/monitoringartist/zabbix-docker-monitoring) module
 - **[Zabbix templates](https://hub.docker.com/r/monitoringartist/zabbix-templates/)** - tiny Docker image for simple template deployment of selected Zabbix monitoring templates
-- **[Zabbix extension - all templates](https://hub.docker.com/r/monitoringartist/zabbix-ext-all-templates/)** - storage image for Dockbix XXL with 200+ [community templates](https://github.com/monitoringartist/zabbix-community-repos)
+- **[Zabbix extension - all templates](https://hub.docker.com/r/monitoringartist/zabbix-ext-all-templates/)** - storage image for Docker agent with 200+ [community templates](https://github.com/monitoringartist/zabbix-community-repos)
 - **[Kubernetized Zabbix](https://github.com/monitoringartist/kubernetes-zabbix)** - containerized Zabbix cluster based on Kubernetes
-- **[Grafana XXL](https://hub.docker.com/r/monitoringartist/grafana-xxl/)** - dockerized Grafana with all community plugins
+- **[Grafana](https://hub.docker.com/r/monitoringartist/grafana-xxl/)** - dockerized Grafana with all community plugins
 - **[Grafana dashboards](https://grafana.net/monitoringartist)** - Grafana dashboard collection for [AWS](https://github.com/monitoringartist/grafana-aws-cloudwatch-dashboards) and [Zabbix](https://github.com/monitoringartist/grafana-zabbix-dashboards)
 - **[Monitoring Analytics](https://hub.docker.com/r/monitoringartist/monitoring-analytics/)** - graphic analytic tool for Zabbix data from data scientists
 - **[Docker killer](https://hub.docker.com/r/monitoringartist/docker-killer/)** - Docker image for Docker stress and Docker orchestration testing
 
 ----
 
-Start Dockbix agent container and monitor all Docker containers on your host.
+Start Docker agent container and monitor all Docker containers on your host.
 Module [Zabbix Docker monitoring](https://github.com/monitoringartist/zabbix-docker-monitoring)
 is used - all [docker module container metrics](https://github.com/monitoringartist/zabbix-docker-monitoring)
-are available except `docker.xnet`. Import/assign [Dockbix Agent XXL templates](https://raw.githubusercontent.com/monitoringartist/dockbix-agent-xxl/master/Zabbix-Templates-for-Dockbix-Agent-XXL.xml) +
-then just start Dockbix agent container:
+are available except `docker.xnet`. Import/assign [Docker Agent templates](https://raw.githubusercontent.com/monitoringartist/dockbix-agent-xxl/master/Zabbix-Templates-for-Dockbix-Agent-XXL.xml) +
+then just start Docker agent container:
 
-![Dockbix Agent XXL Docker container](doc/dockbix-agent-xxl.gif)
+![Docker Agent for Docker container](doc/docker-agent-xxl.gif)
 
 ```bash
 docker run \
-  --name=dockbix-agent-xxl \
+  --name=docker-agent \
   --net=host \
   --privileged \
   -v /:/rootfs \
@@ -55,7 +42,7 @@ docker run \
   -d monitoringartist/dockbix-agent-xxl-limited:latest
 ```
 
-![Dockbix Agent XXL Docker container](doc/dockbix-agent-xxl-version.gif)
+![Docker Agent for Docker container](doc/docker-agent-version.gif)
 
 ```bash
 docker run --rm -t monitoringartist/dockbix-agent-xxl-limited version
@@ -86,17 +73,17 @@ has almost the same functionality as private paid Docker image
 - doesn't support command execution in the container; for example, you can't
 use `system.run[]` item
 - doesn't support any shell access in the container; for example, you can't
-use `docker exec -ti dockbix-agent-xxl bash`
+use `docker exec -ti docker-agent bash`
 - collects Google Analytics statistics (Docker version, kernel version, execution driver,
-Dockbix agent container start-up errors), which are used for improvements;
+Docker agent container start-up errors), which are used for improvements;
 statistics may also be used for public presentations
 
 [![Buy](doc/buy-now.jpg)](https://monitoringartist.com/product/private-docker-image-dockbix-agent-xxl/)
 
 General limitations:
 
-- Dockbix agent container doesn't support `docker stop/start` container commands
-- Dockbix agent container doesn't support `docker.xnet` container metrics
+- Docker agent container doesn't support `docker stop/start` container commands
+- Docker agent container doesn't support `docker.xnet` container metrics
 - host metric support is not complete; CPU and net host metrics are available, filesystem metrics with `/rootfs` prefix, process (`proc.*`) are not available due to cgroup limitation
 
 # Environment configuration variables
@@ -110,7 +97,7 @@ Example:
 
 ```bash
 docker run \
-  --name=dockbix-agent-xxl \
+  --name=docker-agent-xxl \
   --net=host \
   --privileged \
   -v /:/rootfs \
@@ -129,9 +116,9 @@ configuration from the config file is not supported.
 
 # Zabbix templates
 
-Example of Zabbix templates, which can be used with Dockbix agent:
+Example of Zabbix templates, which can be used with Docker agent:
 
-- [Templates for Dockbix Agent XXL](https://raw.githubusercontent.com/monitoringartist/dockbix-agent-xxl/master/Zabbix-Templates-for-Dockbix-Agent-XXL.xml) -
+- [Templates for Docker Agent](https://raw.githubusercontent.com/monitoringartist/dockbix-agent-xxl/master/Zabbix-Templates-for-Dockbix-Agent-XXL.xml) -
   discovers and monitors (some) host and Docker metrics
 - [Templates App systemd services](https://raw.githubusercontent.com/cavaliercoder/zabbix-module-systemd/master/templates/Template%20App%20systemd%20services.xml) -
   discovers and monitors systemd services metrics
@@ -150,26 +137,25 @@ There is no particular action required to migrate from older Docker image
 [`monitoringartist/zabbix-agent-xxl-limited`](https://hub.docker.com/r/monitoringartist/zabbix-agent-xxl-limited/).
 Just change Docker image name. Environment variables are still the same.
 
-# Public test instance of Dockbix Agent XXL
+# Public test instance of Docker Agent
 
-A public test instance of Dockbix agent XXL is available on the address
+A public test instance of Docker agent is available on the address
 `play.monitoringart.com:10050`*. It's available for anyone as a public part of
 the monitoringartist playground. Just create a new host in your Zabbix server
 with this configuration, and you will see what Dockbix can provide:
 
-![Public Dockbix Agent XXL](doc/dockbix-public-agent.png)
+![Public Docker Agent](doc/docker-public-agent.png)
 
-![Public Dockbix Agent XXL](doc/dockbix-public-agent1.png)
+![Public Docker Agent](doc/docker-public-agent1.png)
 
-Note: There is no guarantee of availability of public test instance of Dockbix
-Agent container.
+Note: There is no guarantee of availability of public test instance of Docker Agent container.
 
 # How it works
 
-![Dockbix Agent XXL Docker container](doc/dockbix-agent-xxl-schema.png)
+![Docker Agent for Docker container](doc/docker-agent-xxl-schema.png)
 
 No standard rpm/deb package installation or Zabbix module compilation. Just start
-dockbix-agent-xxl container and Docker container metrics will be collected from
+docker-agent container and Docker container metrics will be collected from
 the Docker daemon API or cgroups.
 
 # How to monitor dockerized apps
@@ -200,7 +186,7 @@ Zabbix agent stress testing:
 
 ```bash
 $ docker run \
-  --name=dockbix-agent-xxl \
+  --name=docker-agent-xxl \
   --net=host \
   --privileged \
   -v /:/rootfs \
@@ -210,7 +196,7 @@ $ docker run \
   -d monitoringartist/dockbix-agent-xxl-limited:latest
 
 # used HW - 8xCPU Intel(R) Xeon(R) CPU E31270 @ 3.40GHz:
-$ docker exec -ti dockbix-agent-xxl zabbix_agent_bench -host 127.0.0.1 -timelimit 30 -key stress.ping --threads 50
+$ docker exec -ti docker-agent zabbix_agent_bench -host 127.0.0.1 -timelimit 30 -key stress.ping --threads 50
 Testing 1 keys with 50 threads (press Ctrl-C to cancel)...
 stress.ping :	1225787	0	0
 
@@ -228,10 +214,10 @@ Finished! Processed 1225787 values across 50 threads in 30.002141605s (40856.650
 
 * Kubernetes - please visit https://github.com/monitoringartist/kubernetes-zabbix
 for inspiration
-* [Puppet for dockbix-agent-xxl-limited](puppet.md)
-* [Ansible for dockbix-agent-xxl-limited](ansible.md)
-* [docker-compose for dockbix-agent-xxl-limited](docker-compose.yml)
-* [systemd service unit file](#dockbix-agent-xxl-service-managed-by-systemd) - see section below
+* [Puppet for docker-agent](puppet.md)
+* [Ansible for docker-agent](ansible.md)
+* [docker-compose for docker-agent](docker-compose.yml)
+* [systemd service unit file](#docker-agent-service-managed-by-systemd) - see section below
 
 Please feel free to create a pull request for other Docker orchestration tools:
 AWS ECS, Docker Swarm, Mesos/Marathon, Cloud Foundry, CoreOS Fleet, Azure ACS,
@@ -241,27 +227,26 @@ Nomad, Zenoss Control Center, ...
 
 - https://github.com/ThomasVdBerge/zabbix-docker-terraform
 
-# Dockbix Agent XXL service managed by systemd
+# Docker Agent service managed by systemd
 
-Example of [systemd service unit file for Dockbix agent XXL](systemd/docker-dockbix-agent-xxl.service) -
-don't forget to edit environment variables. Then you can manage Dockbix agent XXL
-as a standard OS service:
+Example of [systemd service unit file for Docker agent ](systemd/docker-agent.service) -
+don't forget to edit environment variables. Then you can manage Docker agent as a standard OS service:
 
 ```bash
 $ wget -P /usr/lib/systemd/system/ https://raw.githubusercontent.com/monitoringartist/dockbix-agent-xxl/master/systemd/docker-dockbix-agent-xxl.service
-# edit env variables: vi /usr/lib/systemd/system/docker-dockbix-agent-xxl.service
-$ systemctl enable docker-dockbix-agent-xxl.service
-Created symlink from /etc/systemd/system/multi-user.target.wants/docker-dockbix-agent-xxl.service to /usr/lib/systemd/system/docker-dockbix-agent-xxl.service.
-$ systemctl start docker-dockbix-agent-xxl.service
-$ systemctl status docker-dockbix-agent-xxl.service
-● docker-dockbix-agent-xxl.service - Dockbix Agent XXL www.monitoringartist.com
-   Loaded: loaded (/usr/lib/systemd/system/docker-dockbix-agent-xxl.service; enabled; vendor preset: disabled)
+# edit env variables: vi /usr/lib/systemd/system/docker-docker-agent.service
+$ systemctl enable docker-agent.service
+Created symlink from /etc/systemd/system/multi-user.target.wants/docker-agent.service to /usr/lib/systemd/system/docker-agent.service.
+$ systemctl start docker-agent.service
+$ systemctl status docker-agent.service
+● docker-agent.service - Docker Agent
+   Loaded: loaded (/usr/lib/systemd/system/docker-agent.service; enabled; vendor preset: disabled)
    Active: active (running) since Sat 2016-08-20 00:17:04 BST; 5s ago
   Process: 72712 ExecStartPre=/usr/bin/docker pull monitoringartist/dockbix-agent-xxl-limited:latest (code=exited, status=0/SUCCESS)
  Main PID: 72719 (docker)
    Memory: 8.6M
-   CGroup: /system.slice/docker-dockbix-agent-xxl.service
-           └─72719 /usr/bin/docker run --rm -e ZA_Server=<ZABBIX SERVER IP/DNS NAME> --name docker-dockbix-agent-xxl.service -h dockerhost --net=host --privileged -v /:/rootfs...
+   CGroup: /system.slice/docker-agent.service
+           └─72719 /usr/bin/docker run --rm -e ZA_Server=<ZABBIX SERVER IP/DNS NAME> --name docker-agent.service -h dockerhost --net=host --privileged -v /:/rootfs...
 
 Aug 20 00:17:05 dockerhost docker[72719]: 11:20160819:231705.575 IPv6 support:          YES
 Aug 20 00:17:05 dockerhost docker[72719]: 11:20160819:231705.575 TLS support:           YES
@@ -273,18 +258,18 @@ Aug 20 00:17:05 dockerhost docker[72719]: 12:20160819:231705.583 agent #1 starte
 Aug 20 00:17:05 dockerhost docker[72719]: 14:20160819:231705.583 agent #3 started [listener #2]
 Aug 20 00:17:05 dockerhost docker[72719]: 13:20160819:231705.584 agent #2 started [listener #1]
 Aug 20 00:17:05 dockerhost docker[72719]: 15:20160819:231705.586 agent #4 started [listener #3]
-$ docker ps | grep dockbix-agent-xxl
-b2ecbf3a7df0        monitoringartist/dockbix-agent-xxl-limited:latest   "/dockbix-agent-xxl"       25 seconds ago      Up 24 seconds       0.0.0.0:10050->10050/tcp   docker-zabbix-agent-xxl.service
+$ docker ps | grep docker-agent
+b2ecbf3a7df0        monitoringartist/dockbix-agent-xxl-limited:latest   "/docker-agent"       25 seconds ago      Up 24 seconds       0.0.0.0:10050->10050/tcp   docker-zabbix-agent.service
 ```
 
 # Support
 
 First try to troubleshoot problems yourself. Increase debug level ` -e 'ZA_DebugLevel=5'`
-and check the container logs `docker logs dockbix-agent-xxl`. Try to obtain raw
+and check the container logs `docker logs docker-agent`. Try to obtain raw
 values from the agent, for example:
 
 ```bash
-$ docker exec -ti dockbix-agent-xxl zabbix_get -s 127.0.0.1 -k docker.mem[/dockbix-agent-xxl,rss]
+$ docker exec -ti docker-agent zabbix_get -s 127.0.0.1 -k docker.mem[/docker-agent,rss]
 2977792
 ```
 
@@ -305,10 +290,7 @@ Kubernetes, ECS, AWS, Google GCP, Terraform, Lambda, Zabbix, Grafana, Elasticsea
 Kibana, Prometheus, Sysdig, ...
 
 Summary:
-* 2000+ [GitHub](https://github.com/monitoringartist/) stars
+* 2000+ [GitHub](https://github.com/madrum-x/) stars
 * 10 000+ [Grafana dashboard](https://grafana.net/monitoringartist) downloads
 * 1 000 000+ [Docker image](https://hub.docker.com/u/monitoringartist/) pulls
 
-Professional devops / monitoring / consulting services:
-
-[![Monitoring Artist](http://monitoringartist.com/img/github-monitoring-artist-logo.jpg)](http://www.monitoringartist.com 'DevOps / Docker / Kubernetes / AWS ECS / Google GCP / Zabbix / Zenoss / Terraform / Monitoring')

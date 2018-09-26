@@ -1,5 +1,5 @@
 [Unit]
-Description=Dockbix Agent XXL www.monitoringartist.com
+Description=Docker Agent
 After=docker.service
 Requires=docker.service
 
